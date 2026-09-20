@@ -1,0 +1,4 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>*{font-family:'DejaVu Sans',sans-serif} body{direction:rtl; font-size:11px} table{width:100%; border-collapse:collapse; margin-top:10px} th,td{border:1px solid #cbd5e1; padding:5px 6px; text-align:right} th{background:#f1f5f9} h1{text-align:center} .meta{text-align:center; color:#64748b}</style></head><body>
+<h1>تقرير المصروفات — {{ $from }} إلى {{ $to }}</h1><p class="meta">الإجمالي: {{ number_format($total,0) }} ج.م</p>
+<table><thead><tr><th>التاريخ</th><th>التصنيف</th><th>المبلغ</th><th>الوصف</th></tr></thead><tbody>@foreach($expenses as $e)<tr><td>{{ $e->expense_date?->format('Y/m/d') }}</td><td>{{ $e->category_label }}</td><td>{{ number_format($e->amount,0) }}</td><td>{{ $e->description ?? '—' }}</td></tr>@endforeach</tbody></table>
+</body></html>
